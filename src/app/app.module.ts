@@ -3,9 +3,12 @@ import { NgModule } from '@angular/core';
 
 import { AppRoutingModule } from './app-routing.module';
 
+import { FormsModule } from '@angular/forms';
+
 import { AppComponent } from './app.component';
 import { StoreModule } from '@ngrx/store';
 import { simpleReducer } from './simple.reducer'
+import { postReducer } from './reducers/post.reducer'
 
 
 @NgModule({
@@ -15,7 +18,11 @@ import { simpleReducer } from './simple.reducer'
   imports: [
     BrowserModule,
     AppRoutingModule,
-    StoreModule.forRoot({ message: simpleReducer})
+    FormsModule,
+    StoreModule.forRoot({
+      post: postReducer,
+      message: simpleReducer
+    })
   ],
   providers: [],
   bootstrap: [AppComponent]
